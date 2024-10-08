@@ -1,4 +1,4 @@
-Dynamic Beamforming Optimization Using Genetic Algorithm for Mobile Devices, Fleets, and Drones
+#**Dynamic Beamforming Optimization Using Genetic Algorithm for Mobile Devices, Fleets, and Drones**
 
 This repository contains the code and related materials for the project Dynamic Beamforming Optimization Using Genetic Algorithm for Mobile Devices, Fleets, and Drones in Multi-Antenna Systems. The project demonstrates the use of genetic algorithms (GA) to improve real-time beamforming in dynamic and mobile environments.
 
