@@ -51,13 +51,13 @@ We propose using a genetic algorithm to optimize beamforming weights in real-tim
 
 ## File Descriptions
 
-1. **`Beamforming_Optimization.ipynb`**: A Python notebook containing the full simulation of the dynamic beamforming process. This includes simulations for both constant velocity and acceleration motion. The simulations utilize a synthetic dataset generated with an inverted Ackley function. To simulate real-world environmental noise, AWGN, Raleigh, and Rician noise models were added.
+1. **`Dynamic-Beamforming-using-Genetic-Algorithm-Notebook.ipynb`**: A Python notebook containing the full simulation of the dynamic beamforming process. This includes simulations for both constant velocity and acceleration motion. The simulations utilize a synthetic dataset generated with an inverted Ackley function. To simulate real-world environmental noise, AWGN, Raleigh, and Rician noise models were added.
    
 2. **`model.py`**: Contains the Genetic Algorithm script optimized for dynamic beamforming. The GA evolves the antenna configurations in real-time for optimal beam tracking and signal enhancement.
 
-3. **`generate_ackley.py`**: A script to generate the inverted Ackley function, which is used as the fitness landscape in testing the GA's ability to optimize beamforming.
+3. **`Synthetic_Dataset.py`**: A script to generate the inverted Ackley function, which is used as the fitness landscape in testing the GA's ability to optimize beamforming.
 
-4. **Simulation Results**: The notebook also includes visualizations of the simulation results for different motion types (constant velocity and acceleration) and provides references for comparison.
+5. **Simulation Results**: The notebook also includes visualizations of the simulation results for different motion types (constant velocity and acceleration) and provides references for comparison.
 
 ## Installation and Usage
 
