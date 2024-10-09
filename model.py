@@ -55,12 +55,6 @@ def rosenbrock(x, a=1, b=100):
     prod_term = np.sum(b * (x[1:] - x[:-1]**2)**2)
     return (sum_term + prod_term)
 
-# Sphere function used as an objective function.
-def sphere(x):
-    return np.sum(x**2)
-
-# Ackley function used as an objective function. Adjust x based on elapsed time since start_time.
-
 # Function to introduce AWGN noise
 def add_awgn_noise(x, snr_db):
     snr_linear = 10**(snr_db / 10.0)
@@ -91,61 +85,6 @@ def add_co_channel_interference(x, interference_level=0.1):
     interference = np.random.normal(0, interference_level, x.shape)
     return x + interference
 
-# Modified Ackley function with multimodality and impairments
-def ackley(x, start_time, ti, snr_db=20, fading_type='rician', interference_level=0.1, nakagami_m=1):
-    # Apply time decay
-    r = 10
-    import math
-    x[0] = x[0] - r*math.cos(0.2*(ti-start_time))
-    x[1] = x[1] - r*math.sin(0.2*(ti-start_time))
-    x[2] = x[2] - (0.2*(ti-start_time))
-    # Apply impairments
-    x = add_awgn_noise(x, snr_db)
-    
-    if fading_type == 'rayleigh':
-        x = apply_rayleigh_fading(x)
-    elif fading_type == 'rician':
-        x = apply_rician_fading(x)
-    elif fading_type == 'nakagami':
-        x = apply_nakagami_fading(x, m=nakagami_m)
-    
-    # Add co-channel interference
-    x = add_co_channel_interference(x, interference_level)
-    
-    # Check if the input is within bounds
-    if np.all(x >= -20) and np.all(x <= 20):
-        # Ackley function parameters
-        a = 20
-        b = 0.2
-        c = 2 * np.pi
-        n = len(x)
-        
-        # Compute sum terms for the Ackley function
-        sum1 = np.sum(x**2)
-        sum2 = np.sum(np.cos(c * x))
-        
-        # Compute terms of the Ackley function
-        term1 = -a * np.exp(-b * np.sqrt(sum1 / n))
-        term2 = -np.exp(sum2 / n)
-        
-        # Adding multimodal aspect by creating an additional sine wave modulation
-        modulation = np.sin(5 * np.pi * x).sum()
-        
-        # Final result
-        return 20 - (term1 + term2 + a + np.exp(1)) + modulation
-    else:
-        return 0
-
-# Rastrigin function used as an objective function.
-def rastrigin(x):
-    A = 10
-    return A * len(x) + np.sum(x**2 - A * np.cos(2 * np.pi * x))
-
-# Zakharov function used as an objective function.
-def zakharov(x):
-    sum1 = np.sum(x**2)
-    sum2 = np.sum(0.5 * np.arange(1, len(x) + 1) * x)
-    return sum1 + sum2**2 + sum2**4
 
 # Function to generate values for the population based on the given objective function.
 def population_value_generator(obj_fun, population, x_gene_value, y_gene_value, z_gene_value, start_time, ti):
