@@ -9,7 +9,8 @@ This repository contains the code and related materials for the project **Dynami
 3. [Proposed Solution](#proposed-solution)
 4. [Technologies Used](#technologies-used)
 5. [Use Cases](#use-cases)
-6. [Installation and Usage](#installation-and-usage)
+6. [File Descriptions](#file-descriptions)
+7. [Installation and Usage](#installation-and-usage)
 
 ## Introduction
 
@@ -47,6 +48,16 @@ We propose using a genetic algorithm to optimize beamforming weights in real-tim
 1. **Drones**: Dynamic beamforming ensures uninterrupted communication as drones move through different spatial zones.
 2. **Fleet Management**: Mobile fleets can benefit from optimized beamforming for vehicle-to-infrastructure (V2I) and vehicle-to-vehicle (V2V) communication.
 3. **Mobile Devices**: Enhances signal reception and stability for mobile devices in crowded urban environments.
+
+## File Descriptions
+
+1. **`Beamforming_Optimization.ipynb`**: A Python notebook containing the full simulation of the dynamic beamforming process. This includes simulations for both constant velocity and acceleration motion. The simulations utilize a synthetic dataset generated with an inverted Ackley function. To simulate real-world environmental noise, AWGN, Raleigh, and Rician noise models were added.
+   
+2. **`model.py`**: Contains the Genetic Algorithm script optimized for dynamic beamforming. The GA evolves the antenna configurations in real-time for optimal beam tracking and signal enhancement.
+
+3. **`generate_ackley.py`**: A script to generate the inverted Ackley function, which is used as the fitness landscape in testing the GA's ability to optimize beamforming.
+
+4. **Simulation Results**: The notebook also includes visualizations of the simulation results for different motion types (constant velocity and acceleration) and provides references for comparison.
 
 ## Installation and Usage
 
